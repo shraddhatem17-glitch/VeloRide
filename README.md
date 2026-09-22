@@ -88,7 +88,7 @@ interivew/
 ├── css/
 │   └── styles.css       # Custom design system, type badges, responsive layouts, animations
 └── js/
-    ├── data.js          # Catalog of 18+ bikes, stations, add-ons, promo codes, FAQs
+    ├── data.js          # Catalog of 18+ bikes, stations, add-ons, promo codes
     └── app.js           # Live filtering, dynamic math, modal lifecycle, localStorage
 ```
 

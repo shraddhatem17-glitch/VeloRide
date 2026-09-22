@@ -175,7 +175,7 @@ const BIKES_DATA = [
     deposit: 2000,
     rating: 4.80,
     reviewsCount: 520,
-    image: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=900&q=80",
     specs: {
       engine: "109.51cc OHC Single-Cyl",
       power: "7.91 BHP @ 8000 RPM",
@@ -229,7 +229,7 @@ const BIKES_DATA = [
     deposit: 2500,
     rating: 4.88,
     reviewsCount: 188,
-    image: "https://images.unsplash.com/photo-1558981852-426c099ec5c6?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=900&q=80",
     specs: {
       motor: "250W BLDC Rear Hub",
       battery: "36V 7.8Ah Li-ion",
@@ -255,7 +255,7 @@ const BIKES_DATA = [
     deposit: 5000,
     rating: 4.88,
     reviewsCount: 140,
-    image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=900&q=80",
     specs: {
       motor: "3.0 kW Mid-Drive Motor",
       battery: "3.24 kWh Swappable Li-ion",
@@ -389,7 +389,7 @@ const BIKES_DATA = [
     deposit: 1500,
     rating: 4.68,
     reviewsCount: 78,
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=900&q=80",
     specs: {
       gears: "Single Speed 46T / 16T",
       brakes: "Front & Rear Caliper",
@@ -497,7 +497,7 @@ const BIKES_DATA = [
     deposit: 3200,
     rating: 4.87,
     reviewsCount: 88,
-    image: "https://images.unsplash.com/photo-1558980664-3a031cf67ea8?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=900&q=80",
     specs: {
       gears: "2x10 Shimano GRX",
       brakes: "Flat-Mount Hydraulic Disc",
@@ -623,30 +623,3 @@ const PROMO_CODES = {
   "GREENRIDE":  { discountPercent: 10, description: "10% Eco commute discount" }
 };
 
-// ====================== FAQs ======================
-const FAQS_DATA = [
-  {
-    q: "What types of bikes are available for rental?",
-    a: "We offer motorcycles (Royal Enfield Classic 350, KTM Duke 390, Himalayan, Yamaha R15), automatic scooters (Vespa, Honda Activa, Ather 450X Electric), electric e-bikes & e-motorcycles (Revolt RV400, Hero Lectro), mountain bikes (Firefox, Btwin Rockrider), road & fixie bikes, city cruisers, and fat tire gravel bikes."
-  },
-  {
-    q: "What documents do I need to rent a motorcycle or scooter?",
-    a: "For motorised two-wheelers (motorcycles, scooters above 25 km/h), a valid Indian Driving Licence (Two-Wheeler), Aadhaar card or Government Photo ID is required at pickup. For pedal bicycles and slow-speed e-cycles, only a valid photo ID and age proof (18+) is needed."
-  },
-  {
-    q: "Are helmets, riding gear, and locks provided?",
-    a: "Yes! Every rental includes an ISI-certified helmet and security lock at minimal cost. Optional CE-armoured riding jackets, gloves, and mobile mounts are also available as paid add-ons."
-  },
-  {
-    q: "Can I pick up at one hub and return to another city hub?",
-    a: "Yes! Multi-city returns are supported. You may pick up in Delhi (Connaught Place Hub) and return in Bengaluru or Mumbai at no extra charge if advance intimation is given at the time of booking."
-  },
-  {
-    q: "How does the refundable security deposit work?",
-    a: "A refundable deposit ranging from ₹1,500 to ₹8,000 (based on bike value) is collected at pickup. It is returned within 24 hours of vehicle return, after a quick inspection confirming no damage."
-  },
-  {
-    q: "What if I have a breakdown or flat tyre on the road?",
-    a: "Our 24/7 roadside assistance helpline number is clearly printed on your digital rental pass. A technician or replacement vehicle is dispatched to your GPS location within 30 minutes of your call."
-  }
-];

@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const myBookingsGrid       = document.getElementById("my-bookings-grid");
   const emptyBookingsNotice  = document.getElementById("empty-bookings-notice");
   const stationsGrid         = document.getElementById("stations-grid");
-  const faqList              = document.getElementById("faq-accordion");
   const toastContainer       = document.getElementById("toast-container");
 
   // Auth UI
@@ -173,11 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleLogin(e) {
     e.preventDefault();
-    const email    = document.getElementById("login-email").value.trim();
+    const email    = document.getElementById("login-email").value.trim().toLowerCase();
     const password = document.getElementById("login-password").value;
 
     const users = JSON.parse(localStorage.getItem("veloride_users") || "[]");
-    const user  = users.find(u => u.email === email && u.password === password);
+    const user  = users.find(u => u.email.toLowerCase() === email && u.password === password);
 
     if (!user) {
       showToast("Invalid email or password. Please try again.", "error");
@@ -211,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const users = JSON.parse(localStorage.getItem("veloride_users") || "[]");
-    if (users.some(u => u.email === email)) {
+    if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
       showToast("An account with this email already exists. Please log in.", "error");
       return;
     }
@@ -242,17 +241,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // INITIALISATION
   // ============================================================
   function init() {
+    seedDemoUsers();
     setupDatesDefaults();
     populateStationDropdowns();
     renderBikes();
     renderStations();
     renderAddonsOptions();
-    renderFaqs();
     renderMyBookings();
     updateBadgeCount();
     updateEstimator();
     updateAuthUI();
     bindEvents();
+  }
+
+  function seedDemoUsers() {
+    const users = JSON.parse(localStorage.getItem("veloride_users") || "[]");
+    if (users.length === 0) {
+      users.push({ name: "Alex Morgan", email: "alex@example.com", phone: "+91 98765 43210", password: "password123" });
+      localStorage.setItem("veloride_users", JSON.stringify(users));
+    }
   }
 
   function setupDatesDefaults() {
@@ -782,36 +789,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================================
-  // FAQ ACCORDION
-  // ============================================================
-  function renderFaqs() {
-    if (!faqList) return;
-    faqList.innerHTML = FAQS_DATA.map((item, idx) => `
-      <div class="faq-item ${idx === 0 ? "active" : ""}">
-        <button class="faq-question">
-          <span>${item.q}</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer" ${idx === 0 ? 'style="max-height:300px;"' : ""}>
-          <p>${item.a}</p>
-        </div>
-      </div>`).join("");
-
-    faqList.querySelectorAll(".faq-question").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const item   = btn.closest(".faq-item");
-        const ans    = item.querySelector(".faq-answer");
-        const active = item.classList.contains("active");
-        faqList.querySelectorAll(".faq-item").forEach(fi => {
-          fi.classList.remove("active");
-          fi.querySelector(".faq-answer").style.maxHeight = null;
-        });
-        if (!active) { item.classList.add("active"); ans.style.maxHeight = ans.scrollHeight + "px"; }
-      });
-    });
-  }
-
-  // ============================================================
   // TOAST NOTIFICATIONS
   // ============================================================
   function showToast(message, type = "success") {
@@ -844,6 +821,12 @@ document.addEventListener("DOMContentLoaded", () => {
     signupFormEl?.addEventListener("submit", handleSignup);
     document.getElementById("goto-signup")?.addEventListener("click", e => { e.preventDefault(); switchAuthTab("signup"); });
     document.getElementById("goto-login")?.addEventListener("click",  e => { e.preventDefault(); switchAuthTab("login"); });
+    document.getElementById("fill-demo-btn")?.addEventListener("click", () => {
+      const emailEl = document.getElementById("login-email");
+      const passEl  = document.getElementById("login-password");
+      if (emailEl) emailEl.value = "alex@example.com";
+      if (passEl)  passEl.value  = "password123";
+    });
 
     // Category tabs
     categoryTabs.forEach(tab => {
